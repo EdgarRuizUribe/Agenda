@@ -1,0 +1,100 @@
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="my-element-reg">
+
+    <template>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+            crossorigin="anonymous">
+        
+        <style>
+        
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .cabeceraContactos{
+                font-family: 'Indie Flower', cursive;
+                color: #32947f;
+                height: 50px;
+            }
+            .contenedorContactos{
+                justify-content: flex-start;
+            }
+            .contenedorContactos ul{
+                margin-left: .5rem;
+            }
+            .contenedorContactos ul li {
+                margin: .5rem 0;
+                list-style: none;
+            }
+            .contenedorContactos li:hover{
+                cursor: pointer;
+            }
+            .contenedorContactos ul li a{
+                text-decoration: none;
+                color: #32947f;
+                display: flex;
+                align-items: center;
+                font-family: 'Indie Flower', cursive;
+            }
+            .contenedorContactos ul li a:hover{
+                color: #247060;
+            }
+            .contenedorContactos ul li a:focus{
+                color:  #247060;
+            }
+            .contenedorContactos ul li a i{
+                font-size: 2rem;
+                margin-right: .5rem;
+            }
+            
+        
+        </style>
+
+        <div class="contenedorContactos">
+            <ul>
+
+                <li><a href="#"><i class="fa fa-user-circle"></i>[[name]] [[lastName]]</a></li>
+            
+            </ul>
+        </div>
+
+    </template>
+
+    <script>
+    
+        class RegNew extends Polymer.Element{
+            static get is(){
+                return 'my-element-reg';
+            }
+
+            static get properties() {
+                return {
+                    name: {
+                        type: String,
+                        value: 'Edgar'
+                    },
+                    lastName: {
+                        type: String,
+                        value: 'Ruiz'
+                    },
+                    tell: {
+                        type: String,
+                        value: '55 328 005 63'
+                    },
+                    addres: {
+                        type: String,
+                        value: 'Av. Central Park'
+                    }
+                };
+            }
+        }
+        window.customElements.define(RegNew.is, RegNew);
+
+    </script>
+
+</dom-module>

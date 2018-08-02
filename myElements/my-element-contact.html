@@ -1,0 +1,94 @@
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="my-element-regNew.html">
+
+<dom-module id="my-element-contact">
+
+    <template>
+            <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+            crossorigin="anonymous">
+        
+        <style>
+        
+            :host{
+                
+                border: 2px solid black;
+                border-radius: 5px;
+                display: flex;
+                flex-wrap: wrap;
+                width: 25%;
+                background: url(../src/img/back.jpg)top center repeat-y;
+                background-size: 100%;    
+                -moz-background-size: 100%;  
+                -o-background-size: 100%;   
+                -webkit-background-size: 100%;  
+                -khtml-background-size: 100%;  
+            }
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .cabeceraContactos{
+                font-family: 'Indie Flower', cursive;
+                color: #32947f;
+                height: 50px;
+            }
+            .contenedorContactos{
+                justify-content: flex-start;
+            }
+            .contenedorContactos ul{
+                margin-left: .5rem;
+            }
+            .contenedorContactos ul li {
+                margin: .5rem 0;
+                list-style: none;
+            }
+            .contenedorContactos li:hover{
+                cursor: pointer;
+            }
+            .contenedorContactos ul li a{
+                text-decoration: none;
+                color: #32947f;
+                display: flex;
+                align-items: center;
+                font-family: 'Indie Flower', cursive;
+            }
+            .contenedorContactos ul li a:hover{
+                color: #247060;
+            }
+            .contenedorContactos ul li a:focus{
+                color:  #247060;
+            }
+            .contenedorContactos ul li a i{
+                font-size: 2rem;
+                margin-right: .5rem;
+            }
+            
+        
+        </style>
+
+        <div class="cabeceraContactos">
+            <h1>CONTACTOS</h1>
+        </div>
+
+        <my-element-reg></my-element-reg>
+        
+
+    </template>
+
+    <script>
+        
+    
+        class Contact extends Polymer.Element{
+            static get is(){
+                return 'my-element-contact';
+            }
+        }
+        window.customElements.define(Contact.is, Contact);
+
+    </script>
+
+</dom-module>

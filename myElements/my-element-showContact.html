@@ -1,0 +1,64 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<dom-module id="my-element-show">
+
+    <template>
+            <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+        <style>
+        
+            :host{
+                
+                border: 2px solid black;
+                border-radius: 5px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 25%;
+                background: url(../src/img/back.jpg)top center repeat-y;
+                background-size: 100%;    
+                -moz-background-size: 100%;  
+                -o-background-size: 100%;   
+                -webkit-background-size: 100%;  
+                -khtml-background-size: 100%;  
+                
+            }
+            h1{
+                font-family: 'Indie Flower', cursive;
+                color: #32947f;
+                height: 50px;
+            }
+        
+        </style>
+
+        <h1>Info. Personal</h1>
+        <div class="classShow"></div>
+
+    </template>
+
+    <script>
+    
+    class Show extends Polymer.Element{
+            static get is(){
+                return 'my-element-show';
+            }
+            
+            recibeDatos(e){
+                console.log(e);
+                let nombre= e.target.name,
+                    apellido= e.target.lastname,
+                    tell= e.target.tell,
+                    addres= e.target.addres;
+
+                let data= document.createElement('p'),
+                    nodoData= document.createTextNode(tell);
+
+                data.appendChild(nodoData);
+                this.shadowRoot.appendChild(data);
+            }
+
+        }
+        window.customElements.define(Show.is, Show);
+
+    </script>
+
+</dom-module>
