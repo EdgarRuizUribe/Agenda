@@ -39,6 +39,12 @@
                 justify-content: center;
                 font-family: 'Indie Flower', bold;
             }
+            img{
+                width: 80px;
+                height: 80px;
+                margin-left: 40%;
+                border-radius: 100%;
+            }
             #replace{
                 width: 100%;
             }
@@ -63,9 +69,11 @@
                 let dataLastName= e.target.lastName;
                 let dataTell= e.target.tell;
                 let dataAddres= e.target.addres;
+                let url=e.target.url;
                
 
-                var h = `<p>Nombre: ${dataName}</p>
+                var h = `<img src="${url}">
+                        <p>Nombre: ${dataName}</p>
                         <p>Apellido: ${dataLastName}</p>
                         <p>Tell: ${dataTell}</p>
                         <p>Direccion: ${dataAddres}</p>`

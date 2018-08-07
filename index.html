@@ -26,8 +26,8 @@
 
             <div class="contactos">
                 <my-element-contact></my-element-contact>
-                <my-element-contact name="Juan" last-name="Valdez"></my-element-contact>
-                <my-element-contact name="Eduardo" last-name="Hernandez"></my-element-contact>
+                <my-element-contact name="Juan" last-name="Valdez" tell="26 036 000 54" addres="CDMX" url="../src/img/photo.jpg"></my-element-contact>
+                <my-element-contact name="Eduardo" last-name="Hernandez" tell="56 000 034 23" addres="USA" url="../src/img/photo1.jpeg"></my-element-contact>
             </div>
 
             <div class="pluss">
@@ -44,10 +44,11 @@
 
     <div class="noVisible" id="idRegistrar">
         <h2>Nuevo Contacto</h2>
+        <input type="text" placeholder="Incerta URL de FOTO" id="photo">
         <input type="text" placeholder="Nombre" id="nombre">
         <input type="text" placeholder="Apellido" id="app">
-        <input type="text" placeholder="telefono" id="tell">
-        <input type="text" placeholder="direccion" id="direccion">
+        <input type="text" placeholder="Telefono" id="tell">
+        <input type="text" placeholder="Direccion" id="direccion">
         <input type="button" value="Registrar" id="idBoton">
     </div>
 
@@ -57,6 +58,7 @@
             displayRegistrar=document.querySelector('#idRegistrar'),
             contactos=document.querySelector('.contactos'),
             idNew=document.querySelector('#idNew'),
+            fotoRegistro = document.querySelector('#photo'),
             nombreRegistro = document.querySelector('#nombre'),
             appRegistro=document.querySelector('#app'),
             tellRegistro=document.querySelector('#tell'),
@@ -69,6 +71,7 @@
             
             displayDirecciones.setAttribute('class', 'noVisible');
             displayRegistrar.setAttribute('class', 'visible chulo');
+            fotoRegistro.value ="";
             nombreRegistro.value ="";
             appRegistro.value="";
             tellRegistro.value="";
@@ -82,6 +85,8 @@
             displayRegistrar.setAttribute('class', 'noVisible');
 
             let elementoo=document.createElement('my-element-contact');
+
+            elementoo.setAttribute('url', fotoRegistro.value);
             elementoo.setAttribute('name', nombreRegistro.value);
             elementoo.setAttribute('last-name', appRegistro.value);
             elementoo.setAttribute('tell', tellRegistro.value);
