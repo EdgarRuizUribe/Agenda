@@ -13,6 +13,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
+                align-items: flex-start;
                 width: 25%;
                 background: url(../src/img/back.jpg)top center repeat-y;
                 background-size: 100%;    
@@ -26,12 +27,26 @@
                 font-family: 'Indie Flower', cursive;
                 color: #32947f;
                 height: 50px;
+                margin-bottom: 0;
+               
+            }
+            p{
+            
+                color: #247060;
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+                font-family: 'Indie Flower', bold;
+            }
+            #replace{
+                width: 100%;
             }
         
         </style>
 
         <h1>Info. Personal</h1>
-        <div class="classShow"></div>
+        <div id="replace"></div>
 
     </template>
 
@@ -43,17 +58,20 @@
             }
             
             recibeDatos(e){
-                console.log(e);
-                let nombre= e.target.name,
-                    apellido= e.target.lastname,
-                    tell= e.target.tell,
-                    addres= e.target.addres;
+                let div=this.$.replace;
+                let dataName= e.target.name;
+                let dataLastName= e.target.lastName;
+                let dataTell= e.target.tell;
+                let dataAddres= e.target.addres;
+               
 
-                let data= document.createElement('p'),
-                    nodoData= document.createTextNode(tell);
-
-                data.appendChild(nodoData);
-                this.shadowRoot.appendChild(data);
+                var h = `<p>Nombre: ${dataName}</p>
+                        <p>Apellido: ${dataLastName}</p>
+                        <p>Tell: ${dataTell}</p>
+                        <p>Direccion: ${dataAddres}</p>`
+                div.innerHTML=h;
+                      
+                
             }
 
         }

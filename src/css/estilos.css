@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    justify-content: center;
+    background: url(../img/background.jpg);
+    background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    -webkit-background-size: 100%;
+    -khtml-background-size: 100%;
+}
+
+.contactContenedor {
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 25%;
+    background: url(../img/back.jpg)top center repeat-y;
+    background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    -webkit-background-size: 100%;
+    -khtml-background-size: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.cabeceraContactos {
+    font-family: 'Indie Flower', cursive;
+    color: #32947f;
+    height: 50px;
+}
+
+.contenedorContactos {
+    justify-content: flex-start;
+}
+
+body div {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%
+}
+
+.contactos my-element-contact {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.pluss {
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.pluss a {
+    color: #32947f;
+    font-size: 1.5rem;
+    margin: 0 2rem .5rem 0;
+}
+
+.pluss a:hover {
+    color: #247060;
+}
+
+.visible {
+    display: flex;
+}
+
+.noVisible {
+    display: none;
+}
+.chulo{
+    justify-content: center;
+    background: #f3f7f6c9;
+    color: #247060;
+    font-family: 'Indie Flower', cursive;
+    width: 30%;
+}
+.chulo input{
+    width: 70%;
+    margin: .5rem;
+}
+.chulo #idBoton{
+    border-radius: 5px;
+    background: #247060;
+    color: white;
+}

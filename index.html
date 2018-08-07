@@ -1,47 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <link rel="import" href="myElements/my-element-contact.html">
     <link rel="import" href="myElements/my-element-showContact.html">
-    <style>
-        
-        body{
-            
-        }
-        body div{
-           
-            display: flex;
-            justify-content: center;
-        }
-
-    </style>
+    <link rel="stylesheet" href="src/css/estilos.css">
     <title>Document</title>
 </head>
+
 <body>
-<div>
-    <my-element-contact></my-element-contact>
-    <my-element-show id="idconts"></my-element-show>
+    <div class="datos visible" id="idDirecciones">
+
+        <div class="contactContenedor">
+
+            <div class="cabeceraContactos">
+                <h1>CONTACTOS</h1>
+            </div>
+
+            <div class="contactos">
+                <my-element-contact></my-element-contact>
+                <my-element-contact name="Juan" last-name="Valdez"></my-element-contact>
+                <my-element-contact name="Eduardo" last-name="Hernandez"></my-element-contact>
+            </div>
+
+            <div class="pluss">
+                <a href="#" id="idNew">
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <my-element-show id="idconts"></my-element-show>
+
+    </div>
+
+    <div class="noVisible" id="idRegistrar">
+        <h2>Nuevo Contacto</h2>
+        <input type="text" placeholder="Nombre" id="nombre">
+        <input type="text" placeholder="Apellido" id="app">
+        <input type="text" placeholder="telefono" id="tell">
+        <input type="text" placeholder="direccion" id="direccion">
+        <input type="button" value="Registrar" id="idBoton">
+    </div>
 
     <script>
-    
-    let contact= document.querySelector('my-element-contact'),
-            show= document.querySelector('#idconts');
+        let btnRegistrar=document.querySelector('#idBoton'),
+            displayDirecciones=document.querySelector('#idDirecciones'),
+            displayRegistrar=document.querySelector('#idRegistrar'),
+            contactos=document.querySelector('.contactos'),
+            idNew=document.querySelector('#idNew'),
+            nombreRegistro = document.querySelector('#nombre'),
+            appRegistro=document.querySelector('#app'),
+            tellRegistro=document.querySelector('#tell'),
+            direccionRegistro=document.querySelector('#direccion');
 
-        contact.addEventListener('click',e => {
-            show.recibeDatos(e);
-            console.log(e.target.addres);
+        let contact = document.querySelector('my-element-contact'),
+            show = document.querySelector('#idconts');
+
+        idNew.addEventListener('click', ()=>{
             
+            displayDirecciones.setAttribute('class', 'noVisible');
+            displayRegistrar.setAttribute('class', 'visible chulo');
+            nombreRegistro.value ="";
+            appRegistro.value="";
+            tellRegistro.value="";
+            direccionRegistro.value="";
+
         });
 
+        btnRegistrar.addEventListener('click', ()=>{
+            console.log('escucho'); 
+            displayDirecciones.setAttribute('class', 'datos visible');
+            displayRegistrar.setAttribute('class', 'noVisible');
+
+            let elementoo=document.createElement('my-element-contact');
+            elementoo.setAttribute('name', nombreRegistro.value);
+            elementoo.setAttribute('last-name', appRegistro.value);
+            elementoo.setAttribute('tell', tellRegistro.value);
+            elementoo.setAttribute('addres', direccionRegistro.value);
+
+            contactos.appendChild(elementoo);
+
+        });
+
+            document.addEventListener('mi-evento-edg', e => {
+            show.recibeDatos(e);
+        });
+       
     </script>
 
-</div>
+    </div>
 </body>
+
 </html>

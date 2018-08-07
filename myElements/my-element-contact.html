@@ -1,90 +1,91 @@
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="my-element-regNew.html">
+
 
 <dom-module id="my-element-contact">
 
     <template>
-            <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
             crossorigin="anonymous">
-        
+
         <style>
-        
-            :host{
-                
-                border: 2px solid black;
-                border-radius: 5px;
-                display: flex;
-                flex-wrap: wrap;
-                width: 25%;
-                background: url(../src/img/back.jpg)top center repeat-y;
-                background-size: 100%;    
-                -moz-background-size: 100%;  
-                -o-background-size: 100%;   
-                -webkit-background-size: 100%;  
-                -khtml-background-size: 100%;  
-            }
-            div {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .cabeceraContactos{
-                font-family: 'Indie Flower', cursive;
-                color: #32947f;
-                height: 50px;
-            }
-            .contenedorContactos{
-                justify-content: flex-start;
-            }
-            .contenedorContactos ul{
-                margin-left: .5rem;
-            }
             .contenedorContactos ul li {
-                margin: .5rem 0;
                 list-style: none;
             }
-            .contenedorContactos li:hover{
+
+            .contenedorContactos li:hover {
                 cursor: pointer;
             }
-            .contenedorContactos ul li a{
+
+            .contenedorContactos ul li a {
                 text-decoration: none;
-                color: #32947f;
+                color: #3b9b86;
                 display: flex;
                 align-items: center;
                 font-family: 'Indie Flower', cursive;
             }
-            .contenedorContactos ul li a:hover{
+
+            .contenedorContactos ul li a:hover {
                 color: #247060;
             }
-            .contenedorContactos ul li a:focus{
-                color:  #247060;
+
+            .contenedorContactos ul li a:focus {
+                color: #247060;
             }
-            .contenedorContactos ul li a i{
-                font-size: 2rem;
+
+            .contenedorContactos ul li a i {
+                font-size: 2.3rem;
                 margin-right: .5rem;
             }
-            
-        
         </style>
 
-        <div class="cabeceraContactos">
-            <h1>CONTACTOS</h1>
-        </div>
+        <div class="contenedorContactos">
+            <ul>
 
-        <my-element-reg></my-element-reg>
-        
+                <li on-click='click'>
+                    <a href="#" class="list">
+                        <i  class="fa fa-user-circle"></i>[[name]] [[lastName]]</a>
+                </li>
+
+            </ul>
+        </div>
 
     </template>
 
     <script>
-        
-    
-        class Contact extends Polymer.Element{
-            static get is(){
+
+        class Contact extends Polymer.Element {
+            static get is() {
                 return 'my-element-contact';
+            }
+
+            static get properties() {
+                return {
+                    name: {
+                        type: String,
+                        value: "Riki"
+                    },
+                    lastName: {
+                        type: String,
+                        value: "Rikin"
+                    },
+                    tell: {
+                        type: String,
+                        value: "55 328 005 63"
+                    },
+                    addres: {
+                        type: String,
+                        value: "Central Park"
+                    }
+                }
+            }
+            click(e){
+                const element = e.target;
+                this.dispatchEvent(new CustomEvent('mi-evento-edg', {
+                    bubbles:true,
+                    composed:false,
+                    detail:{element}
+                }));
             }
         }
         window.customElements.define(Contact.is, Contact);
