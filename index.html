@@ -11,6 +11,8 @@
 
     <link rel="import" href="myElements/my-element-contact.html">
     <link rel="import" href="myElements/my-element-showContact.html">
+    <link rel="import" href="bower_components/file-input/file-input.html">
+	<link rel="import" href="bower_components/file-input/image-input.html">
     <link rel="stylesheet" href="src/css/estilos.css">
     <title>Document</title>
 </head>
@@ -27,7 +29,7 @@
             <div class="contactos">
                 <my-element-contact></my-element-contact>
                 <my-element-contact name="Juan" last-name="Valdez" tell="26 036 000 54" addres="CDMX" url="../src/img/photo.jpg"></my-element-contact>
-                <my-element-contact name="Eduardo" last-name="Hernandez" tell="56 000 034 23" addres="USA" url="../src/img/photo1.jpeg"></my-element-contact>
+                <my-element-contact name="Eduardo" last-name="Hernandez" tell="56 000 034 23" addres="USA" url="../src/img/photo1.jpg"></my-element-contact>
             </div>
 
             <div class="pluss">
@@ -43,8 +45,11 @@
     </div>
 
     <div class="noVisible" id="idRegistrar">
+        <div class="exit"><i class="fa fa-times" id="exit"></i></div>
         <h2>Nuevo Contacto</h2>
-        <input type="text" placeholder="Incerta URL de FOTO" id="photo">
+        <div class="carga-img"></div>
+        <image-input></image-input>
+        <!-- <input type="text" placeholder="Incerta URL de FOTO" id="photo"> -->
         <input type="text" placeholder="Nombre" id="nombre">
         <input type="text" placeholder="Apellido" id="app">
         <input type="text" placeholder="Telefono" id="tell">
@@ -52,55 +57,7 @@
         <input type="button" value="Registrar" id="idBoton">
     </div>
 
-    <script>
-        let btnRegistrar=document.querySelector('#idBoton'),
-            displayDirecciones=document.querySelector('#idDirecciones'),
-            displayRegistrar=document.querySelector('#idRegistrar'),
-            contactos=document.querySelector('.contactos'),
-            idNew=document.querySelector('#idNew'),
-            fotoRegistro = document.querySelector('#photo'),
-            nombreRegistro = document.querySelector('#nombre'),
-            appRegistro=document.querySelector('#app'),
-            tellRegistro=document.querySelector('#tell'),
-            direccionRegistro=document.querySelector('#direccion');
-
-        let contact = document.querySelector('my-element-contact'),
-            show = document.querySelector('#idconts');
-
-        idNew.addEventListener('click', ()=>{
-            
-            displayDirecciones.setAttribute('class', 'noVisible');
-            displayRegistrar.setAttribute('class', 'visible chulo');
-            fotoRegistro.value ="";
-            nombreRegistro.value ="";
-            appRegistro.value="";
-            tellRegistro.value="";
-            direccionRegistro.value="";
-
-        });
-
-        btnRegistrar.addEventListener('click', ()=>{
-            console.log('escucho'); 
-            displayDirecciones.setAttribute('class', 'datos visible');
-            displayRegistrar.setAttribute('class', 'noVisible');
-
-            let elementoo=document.createElement('my-element-contact');
-
-            elementoo.setAttribute('url', fotoRegistro.value);
-            elementoo.setAttribute('name', nombreRegistro.value);
-            elementoo.setAttribute('last-name', appRegistro.value);
-            elementoo.setAttribute('tell', tellRegistro.value);
-            elementoo.setAttribute('addres', direccionRegistro.value);
-
-            contactos.appendChild(elementoo);
-
-        });
-
-            document.addEventListener('mi-evento-edg', e => {
-            show.recibeDatos(e);
-        });
-       
-    </script>
+    <script src="src/script/script.js"></script>
 
     </div>
 </body>
